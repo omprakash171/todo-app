@@ -4,6 +4,7 @@ import "./style/App.css"
 import NavBar from './components/NavBar'
 import AddTask from './components/AddTask'
 import List from './components/List'
+import UpdateTask from "./components/UpdateTask"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<List />} />
         <Route path='/add' element={<AddTask />} />
+        <Route path='/update/:id' element={<UpdateTask />} />
       </Routes>
     </>
   )
