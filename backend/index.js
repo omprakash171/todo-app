@@ -16,4 +16,15 @@ app.post("/add-task", async (req, resp) => {
     }
 })
 
+app.get("/tasks", async (req, resp) => {
+    const db = await connection();
+    const collection = await db.collection(collectionName);
+    const result = await collection.find().toArray();
+    if(result){
+        resp.send({message: "task list fetched", success: true, result})
+    } else {
+        resp.send({message: "error try after sometime", success: false})
+    }
+})
+
 app.listen(3200)
